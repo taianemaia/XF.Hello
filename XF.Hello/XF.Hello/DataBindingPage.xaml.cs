@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Hello.App_Code;
 using XF.Hello.NewFolder;
 
 namespace XF.Hello
@@ -14,17 +15,32 @@ namespace XF.Hello
 	public partial class DataBindingPage : ContentPage
 	{
 		public DataBindingPage ()
-		{
-            Aluno aluno = new Aluno()
+		{         
+            InitializeComponent();
+
+            Aluno aluno = InitializeAluno();
+            Professor professor  = InitializeProfessor();
+            painelAluno.BindingContext = aluno;
+            painelProfessor.BindingContext = professor;
+		}
+
+        private Aluno InitializeAluno()
+        {
+            return new Aluno()
             {
                 Id = Guid.NewGuid(),
                 Nome = "João Silva",
                 Email = "joao@fiap.com"
             };
+        }
 
-            BindingContext = aluno;
-
-			InitializeComponent ();
-		}
-	}
+        private Professor InitializeProfessor()
+        {
+            return new Professor()
+            {
+                Nome = "Fabio Silva",
+                Curso = "ADM"
+            };
+        }
+    }
 }

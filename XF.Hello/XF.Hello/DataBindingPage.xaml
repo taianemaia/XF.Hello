@@ -8,6 +8,11 @@
                 <Label Text="{Binding Nome}"/>
                 <Label Text="{Binding Email}"/>
             </StackLayout>
+
+            <StackLayout x:Name="painelProfessor">
+                <Label Text="{Binding Nome}"/>
+                <Label Text="{Binding Curso}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
